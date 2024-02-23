@@ -11,9 +11,12 @@
 1.  Compile the code: Use a C++ compiler to compile the provided code. For example, you can use the following command:
     ```
     g++ -o parseTempsDriver parseTempsDriver.cpp
-                         or
-                        make
     ```
+    ```
+    make
+    ```
+-  This will use the `makefile` to compile the source code and generate the executable.
+
 2.  Run the Program: Execute the compiled program with the input file name as a command-line argument. For example:
     ```
     ./parseTempsDriver input_file_name
