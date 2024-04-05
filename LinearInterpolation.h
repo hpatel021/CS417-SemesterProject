@@ -3,21 +3,36 @@
 #include <vector>
 #include <map>
 
-/**
- * @class LinearInterpolation
- * @brief Performs linear interpolation on data provided in a map.
- *
- * This class takes a map as input, where the key is an integer representing the core and the value is a vector of floats representing data points.
- * It provides functionalities to calculate the slope and intercept of a line segment connecting two data points within the provided map for a specific core.
- */
 class LinearInterpolation {
 public:
-	LinearInterpolation(const std::map<int, std::vector<float>> m);
-	float calcSlope(const std::map<int, std::vector<float>> m, int x, int core);
-	float calcIntercept(std::map<int, std::vector<float>> m, float slope, int x, int core);
+    /**
+     * Performs piecewise linear interpolation for each core and writes the result to files.
+     *
+     * @param m A map containing data for each core.
+     */
+    static void performInterpolation(const std::map<int, std::vector<float>>& m);
 
 private:
-	float slope;
-	float intercept;
+    /**
+     * Calculates the slope between two consecutive points.
+     *
+     * @param m A map containing data for each core.
+     * @param x The index of the first point.
+     * @param core The core index.
+     * @return The slope between the two points.
+     */
+    static float calcSlope(const std::map<int, std::vector<float>>& m, int x, int core);
+
+    /**
+     * Calculates the intercept of the linear equation.
+     *
+     * @param m A map containing data for each core.
+     * @param slope The slope of the line.
+     * @param x The index of the point.
+     * @param core The core index.
+     * @return The intercept of the linear equation.
+     */
+    static float calcIntercept(const std::map<int, std::vector<float>>& m, float slope, int x, int core);
 };
+
 #endif 

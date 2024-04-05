@@ -1,37 +1,35 @@
 #ifndef LEASTSQUARES_H_
 #define LEASTSQUARES_H_
-
 #include <vector>
 #include <map>
 #include <string>
 
-/**
- * @class LeastSquares
- * @brief Performs least squares approximation on data provided in a map.
- *
- * This class takes a map as input, where the key is an integer representing the core and the value is a vector of floats representing data points.
- * It then performs least squares approximation and provides methods to access the results and print them to a file.
- */
 class LeastSquares {
 public:
-    LeastSquares(const std::map<int, std::vector<float>>& m, std::string s);  
-
-    void reduce(double m[2][3], int i);
-    void eliminate(double m[2][3], int i);
-
-    double getC0() const {
-        return c0;
-    }
-
-    double getC1() const {
-        return c1;
-    }
-
-    void printOutput(float c0, float c1, std::string s, int numEntries, int core); 
+    /**
+     * Performs least squares approximation for given data and writes the result to files.
+     *
+     * @param m A map containing data for each core.
+     * @param s A string to be written to the output files.
+     */
+    static void performApproximation(const std::map<int, std::vector<float>>& m, const std::string& s);
 
 private:
-    double matrix[2][3];
-    double c0;
-    double c1;
+    /**
+     * Reduces the given row of the matrix by dividing all elements by the diagonal element.
+     *
+     * @param m The matrix to be reduced.
+     * @param i The index of the row to be reduced.
+     */
+    static void reduce(double m[2][3], int i);
+
+    /**
+     * Performs elimination to make elements below the diagonal zero.
+     *
+     * @param m The matrix to be eliminated.
+     * @param i The index of the row to be used as pivot.
+     */
+    static void eliminate(double m[2][3], int i);
 };
+
 #endif 

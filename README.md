@@ -1,10 +1,15 @@
-## CPU Temperature Parser
--  This C++ program is designed to parse CPU temperature data from an input file and organize it into a structured format.
--  The program provides flexibility by allowing the use of different container types for storing the parsed data. 
+# CPU Temperature Parser
+
+## Overview
+- CPU Temperature Parser is a C++ program designed to parse temperature data from input files and provide various analysis techniques. 
+- It offers features such as Least Squares Approximation and Piecewise Linear Interpolation to analyze temperature trends effectively.
 
 ## Features
--  Flexible Container Type:
--  Core Temperature Reading Structure:
+- Least Squares Approximation: This feature allows users to approximate temperature trends using the least squares method.
+- Piecewise Linear Interpolation: Users can perform piecewise linear interpolation on temperature data to estimate values between known data points.
+- Input Parsing: The tool parses raw temperature readings from input files and processes them for analysis.
+- Output Generation: It generates output files containing the results of the temperature analysis for each CPU core.
+
 
 ## Usage
   To use this program, follow these steps:
@@ -32,16 +37,16 @@
 -  Ensure that your input file follows the expected format, where each line contains space-separated temperature readings for each CPU core.
 
 ## Sample Input
-    ```
+
     61.0 63.0 50.0 58.0
     80.0 81.0 68.0 77.0
     62.0 63.0 52.0 60.0
     83.0 82.0 70.0 79.0
     68.0 69.0 58.0 65.0
-    ```
+
 
 ## Example Output
-    ```
+
     sample-input.txt
     |----------------------------------------------------------|
 				     Least Squares Approximation
@@ -57,4 +62,4 @@
     30 < x < 60; y = 98 - 0.6x; Linear Interpolation
     60 < x < 90; y = 20 + 0.7x; Linear Interpolation
     90 < x < 120; y = 128 - 0.5x; Linear Interpolation
-    ```
+    
